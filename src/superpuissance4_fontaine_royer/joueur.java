@@ -10,28 +10,26 @@ package superpuissance4_fontaine_royer;
  * @author Hugo
  */
 public class joueur {
- String nom;
- String Couleur;
- int ListeJetons [] = new int[21];
- int nombreDesintegrateurs;
- int nombreJetonsRestant;
+    String Nom; // nom	du joueur
+    String PlayerColor;// 	couleur	affectÃ©e au joueur
+    jeton [] ListeJetons = new jeton [21]; //tableau dÃ©crivant	les jetons encore en possession	du	joueur
+    int nombreDesintegrateurs;//	nombre	de	dÃ©sintÃ©grateurs	actuellement	en	possession
+    int nombreJetonsRestant; //nombre de jetons	 restant en possession du joueur,correspondant Ã  la taille effective de ListeJetons	
 
-public joueur(String unNom) {
- nom = unNom;
+public joueur (String Nickname){
+Nom=Nickname;
 }
-
-public void affecterCouleur(String saCouleur) {
-    Couleur = saCouleur;
+public void affecterCouleur (String color){
+PlayerColor=color;
 }
-    
-public boolean ajouterJeton(int jeton) {
-    if (nombreJetonsRestant < 21) {
-        ListeJetons[nombreJetonsRestant] = jeton;
-        return true;
-    } else {
-     
-    return false;
-    }
+public boolean ajouterJeton (jeton CurrentToken){
+if (nombreJetonsRestant<21){
+        ListeJetons[nombreJetonsRestant]=CurrentToken;
+        nombreJetonsRestant++;
+return true;
+}else {
+return false;
+}
 }
 public void obtenirDesintegrateur (){
    nombreDesintegrateurs++; 
@@ -39,9 +37,9 @@ public void obtenirDesintegrateur (){
 public void utiliserDesintegrateur (){
     if (nombreDesintegrateurs>0){
         nombreDesintegrateurs--;
-        System.out.println("Désintégrateur utilisé, reste "+nombreDesintegrateurs+"desintégrateur ");
+        System.out.println("DÃ©sintÃ©grateur utilisÃ©, reste "+nombreDesintegrateurs+"desintÃ©grateur ");
 } else { 
-    System.out.println("Plus de désintégrateur disponible, tu joues à quoi là ?");
+    System.out.println("Plus de dÃ©sintÃ©grateur disponible, tu joues Ã  quoi lÃ  ?");
 }
 }
 }

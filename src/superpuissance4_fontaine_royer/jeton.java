@@ -10,11 +10,10 @@ package superpuissance4_fontaine_royer;
  * @author Hugo
  */
 public class jeton {
-    public class Jeton {
     String PlayerColor ;
     
     
-    public Jeton (String playercolor) {
+    public jeton (String playercolor) {
         PlayerColor = playercolor;
        
     }
@@ -25,5 +24,4 @@ public class jeton {
         Readcolor = "La couleur du joueur est " +PlayerColor;
         return Readcolor ;
     }
-}
 }
