@@ -13,7 +13,7 @@ public class grille {
     cellule cellules[][]= new cellule[6][7];
   grille() {
         for (int i=0; i<6; i++) {
-            for (int j=0; i<7; j++) {
+            for (int j=0; j<7; j++) {
                 cellules[i][j] = new cellule();
             }
         }
