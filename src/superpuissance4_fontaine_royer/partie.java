@@ -16,6 +16,7 @@ public class partie {
 joueur Listejoueurs[] = new joueur[2];
 joueur joueurCourant;
 grille grilleDeJeu = new grille();
+jeton jetonCourant;
 
 public void attribuerCouleursAuxJoueurs(){
         Random coul = new Random();
@@ -72,19 +73,64 @@ System.out.println("D sont des désintégrateurs");
 grilleDeJeu.afficherGrilleSurConsole();
 
 }
+public void ChoisirEtjouerJeton() {
+    Scanner sc = new Scanner(System.in);
+    boolean tache;
+    System.out.println("Saisir colonne ");
+    int colonnechoisis = sc.nextInt() - 1;
+    while ( colonnechoisis<1 || colonnechoisis>6) {
+        System.out.println("Erreur, veuillez choisir une colonne entre 1 et 6");
+        colonnechoisis = sc.nextInt() - 1;
+    }
+    tache = grilleDeJeu.ajouterJetonDansColonne(jetonCourant, colonnechoisis);
+    while (tache == false) {
+        System.out.println("Colonne remplis, réessayer");
+        colonnechoisis = sc.nextInt() - 1;
+        tache = grilleDeJeu.ajouterJetonDansColonne(jetonCourant, colonnechoisis);
+    }
+        System.out.println("Saisir ligne ");
+        int lignechoisis = sc.nextInt() - 1;
+    
+        while ( lignechoisis<1 || lignechoisis>6) {
+        System.out.println("Erreur, veuillez choisir une ligne entre 1 et 6");
+        lignechoisis = sc.nextInt() - 1;
+    }
+     
+
+    
+
+}
+
+
 // On crée un menu pour les joueurs
-public void menu() { 
+public int menu() { 
         Scanner sc = new Scanner(System.in);
         System.out.println("Choisissez une des instructions suivantes : ");
-        System.out.println(" 1)Jouer un jeton ");
-        System.out.println(" 2) Récupérer un jeton ");
-        System.out.println(" 3) Désintégrer un jeton ");
+        System.out.println(" 1)Placer jeton ");
+    
+         int rep = sc.nextInt(); 
+        switch (rep) { // les différents "cas", c'est-à-dire a réponse choisie par le joueur
+            
+            case 1:
+               ChoisirEtjouerJeton();
+               break;  // Utilisation du break pour mettre fin au programme
+            
+
+ default: 
+                    System.out.println("Choix non valide"); //Utilisation du default pour une mauvaise réponse ou une réponse non reconnue
+                    break;
+                
         
+    }
+        return rep;
 
  
 
 
     }
+
+
+    
 
 public void debuterPartie() {
     initialiserPartie();
